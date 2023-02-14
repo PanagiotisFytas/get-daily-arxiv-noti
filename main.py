@@ -16,8 +16,11 @@ def main():
     content = soup.body.find("div", {'id': 'content'})
 
     issue_title = content.find("h3").text
-    dt_list = content.dl.find_all("dt")
-    dd_list = content.dl.find_all("dd")
+    dl_list = content.find_all("dl")
+    dt_list = dl_list[0].find_all("dt") + dl_list[1].find_all("dt")
+    dd_list = dl_list[0].find_all("dd") + dl_list[1].find_all("dd")
+    # dt_list = content.dl.find_all("dt")
+    # dd_list = content.dl.find_all("dd")
     arxiv_base = "https://arxiv.org/abs/"
 
     assert len(dt_list) == len(dd_list)

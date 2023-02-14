@@ -1,6 +1,6 @@
 # get-daily-arxiv-noti
 
-You can get daily arxiv notification with pre-defined keywords as [here](https://github.com/kobiso/daily-arxiv-noti/issues).
+You can get daily arxiv notification with pre-defined keywords as [here](https://github.com/PanagiotisFytas/daily-arxiv-noti/issues).
 
 Arxiv.org announces new submissions every day on fixed time as informed [here](https://arxiv.org/help/submit).
 
