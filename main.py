@@ -28,6 +28,8 @@ def main():
     keyword_list = KEYWORD_LIST
     keyword_dict = {key: [] for key in keyword_list}
 
+    new_paper_count = 0
+
     for i in range(len(dt_list)):
         paper = {}
         paper_number = dt_list[i].text.strip().split(" ")[2].split(":")[-1]
@@ -42,7 +44,9 @@ def main():
 
         for keyword in keyword_list:
             if keyword.lower() in paper['abstract'].lower():
+                new_paper_count += 1
                 keyword_dict[keyword].append(paper)
+                break
 
     full_report = ''
     for keyword in keyword_list:
@@ -57,7 +61,7 @@ def main():
                         paper['abstract'])
             full_report = full_report + report + '\n'
 
-    make_github_issue(title=issue_title, body=full_report, labels=keyword_list)
+    make_github_issue(title=str(new_paper_count) + " " + issue_title, body=full_report, labels=keyword_list)
 
 if __name__ == '__main__':
     main()
